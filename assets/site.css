@@ -130,8 +130,10 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fo
 @keyframes rise { from { opacity: 0; translate: 0 32px; } }
 
 /* "No" band */
-.nos { background: var(--inverse-surface); color: var(--inverse-on-surface); border-radius: 48px; margin-inline: max(8px, env(safe-area-inset-left, 0px)); }
-.nos .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 32px 48px; align-items: center; padding-block: 48px; }
+/* Same width as the other panels: the content column of .wrap, minus its padding. */
+.nos { background: var(--inverse-surface); color: var(--inverse-on-surface); border-radius: 48px; width: min(calc(100% - 32px), calc(var(--max) - 64px)); margin-inline: auto; }
+@media (min-width: 720px) { .nos { width: min(calc(100% - 64px), calc(var(--max) - 64px)); } }
+.nos .wrap { padding-inline: 48px; display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.3fr); gap: 32px 48px; align-items: center; padding-block: 48px; }
 .nos-lead { font: 500 clamp(19px, 2vw, 23px)/1.4 var(--font); }
 .nos-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
 .nos-list li { display: flex; align-items: center; gap: 10px; min-height: 56px; padding: 8px 16px; border-radius: 16px; font: var(--title-m); background: color-mix(in srgb, var(--inverse-on-surface) 9%, transparent); transition: border-radius .5s var(--spring); }
@@ -302,10 +304,12 @@ footer { background: var(--surface-low); }
 .reveal { opacity: 0; translate: 0 24px; transition: opacity .6s var(--emph-decel), translate .7s var(--emph-decel); }
 .reveal.in { opacity: 1; translate: 0 0; }
 
+/* The "no" band needs the full 1136px band for text and a 3-column list side by side. */
+@media (max-width: 1199px) { .nos .wrap { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 960px) {
+  .nos .wrap { padding: 32px 24px; }
   .hero { grid-template-columns: minmax(0, 1fr); padding-block: 24px 48px; }
   .stage { max-width: 480px; }
-  .nos .wrap { grid-template-columns: minmax(0, 1fr); }
   .features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .play { grid-template-columns: minmax(0, 1fr); padding: 24px; }
   .play-out { order: -1; }
@@ -317,8 +321,8 @@ footer { background: var(--surface-low); }
 }
 @media (max-width: 600px) {
   .nos { border-radius: 32px; }
-  .nos-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-  .nos-list li { font-size: 15px; gap: 8px; padding: 8px 12px; }
+  .nos-list { display: flex; flex-wrap: wrap; gap: 8px; }
+  .nos-list li { flex: 1 1 auto; min-height: 48px; font-size: 15px; gap: 8px; padding: 8px 14px; white-space: nowrap; }
   .nos-list .ms { font-size: 20px; }
   .features { grid-template-columns: minmax(0, 1fr); gap: 36px; }
   .btn { height: 48px; padding: 0 20px; }
