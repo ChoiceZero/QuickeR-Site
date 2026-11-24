@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en" data-accent="blue">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>QuickeR · Your QRs, made quicker</title>
+<meta name="description" content="QuickeR makes QR codes for links, Wi-Fi, contacts, events and more. No accounts, no limits, no ads, no purchases and no tracking. Free and open source for Android, Windows, Linux and macOS.">
+<meta name="theme-color" content="#f8f9ff">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="assets/img/icon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="QuickeR">
+<meta property="og:title" content="QuickeR · Your QRs, made quicker">
+<meta property="og:description" content="QR codes without accounts, limits, ads, purchases or tracking. Free and open source.">
+<meta property="og:image" content="assets/shots/desktop_create_green_light.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="assets/fonts/google-sans-flex-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/material-symbols-rounded-subset.woff2" as="font" type="font/woff2" crossorigin>
+<script>
+  /* Set theme before first paint so there is no flash. mode: auto | light | dark; accent: one of the app's seeds. */
+  (function () {
+    var d = document.documentElement, s = {};
+    try { s = JSON.parse(localStorage.getItem("quicker-site") || "{}"); } catch (e) {}
+    var mode = s.mode || "auto";
+    var dark = mode === "dark" || (mode === "auto" && matchMedia("(prefers-color-scheme: dark)").matches);
+    d.dataset.pref = mode;
+    d.dataset.mode = dark ? "dark" : "light";
+    if (s.accent) d.dataset.accent = s.accent;
+  })();
+</script>
+<link rel="stylesheet" href="assets/schemes.css">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<a class="skip" href="#top">Skip to content</a>
+
+<header class="bar" id="bar">
+  <div class="wrap bar-in">
+    <a class="brand" href="#top" aria-label="QuickeR home">
+      <img src="assets/img/icon.png" width="36" height="36" alt="">
+      <b>Quicke<span>R</span></b>
+    </a>
+    <ul class="nav">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#try">Try it</a></li>
+      <li><a href="#screens">Screens</a></li>
+      <li><a href="#download">Download</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="https://github.com/ChoiceZero/QuickeR">GitHub</a></li>
+      <li class="keep">
+        <div class="accent-menu">
+          <button class="icon-btn" id="accentBtn" type="button" aria-label="Accent color" aria-expanded="false" aria-controls="accentPop"><span class="ms">palette</span></button>
+          <div class="accent-pop" id="accentPop" hidden>
+            <span class="accent-title">Accent color</span>
+            <div class="swatches" role="radiogroup" aria-label="Accent color">
+              <button type="button" role="radio" data-accent="blue" style="--sw:#1E88E5" aria-label="Blue"></button>
+              <button type="button" role="radio" data-accent="green" style="--sw:#4CAF50" aria-label="Green"></button>
+              <button type="button" role="radio" data-accent="teal" style="--sw:#009688" aria-label="Teal"></button>
+              <button type="button" role="radio" data-accent="purple" style="--sw:#9C27B0" aria-label="Purple"></button>
+              <button type="button" role="radio" data-accent="pink" style="--sw:#E91E63" aria-label="Pink"></button>
+              <button type="button" role="radio" data-accent="orange" style="--sw:#FF9800" aria-label="Orange"></button>
+            </div>
+            <small>Same seeds as the app's color scheme setting.</small>
+          </div>
+        </div>
+      </li>
+      <li class="keep"><button class="icon-btn" id="themeBtn" type="button" aria-label="Theme: follow system"><span class="ms" id="themeIcon">brightness_auto</span></button></li>
+      <li class="keep menu-only"><button class="icon-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menuSheet"><span class="ms">menu</span></button></li>
+    </ul>
+  </div>
+  <nav class="wrap menu-sheet" id="menuSheet" hidden>
+    <a href="#features"><span class="ms">auto_awesome</span>Features</a>
+    <a href="#try"><span class="ms">qr_code_2</span>Try it</a>
+    <a href="#screens"><span class="ms">devices</span>Screens</a>
+    <a href="#download"><span class="ms">download</span>Download</a>
+    <a href="#faq"><span class="ms">help</span>FAQ</a>
+    <a href="https://github.com/ChoiceZero/QuickeR"><span class="ms">code</span>GitHub</a>
+  </nav>
+</header>
+
+<main id="top">
+  <!-- Hero -->
+  <div class="wrap hero">
+    <div class="hero-copy">
+      <a class="eyebrow" href="https://github.com/ChoiceZero/QuickeR/releases/latest" id="eyebrow"><i id="eyebrowVer">v1.1.2</i>Latest release notes<span class="ms">arrow_forward</span></a>
+      <h1>Your QRs, <em>made quicker</em>.</h1>
+      <p class="lead">QuickeR makes QR codes for links, Wi-Fi, contacts, events and more. No account, no limits, no ads, no purchases. Nothing about you leaves your device.</p>
+      <div class="actions">
+        <a class="btn filled" href="#download"><span class="ms">download</span>Download</a>
+        <a class="btn tonal" href="https://choicezero.github.io/QuickeR-Web/"><span class="ms">public</span>Open the web app</a>
+      </div>
+      <div class="chips">
+        <span class="chip"><span class="ms">android</span>Android</span>
+        <span class="chip"><span class="ms">desktop_windows</span>Windows</span>
+        <span class="chip"><span class="ms">terminal</span>Linux</span>
+        <span class="chip"><span class="ms">laptop_mac</span>macOS (beta)</span>
+        <span class="chip"><span class="ms">code</span>Open source, MIT</span>
+      </div>
+    </div>
+
+    <div class="stage" aria-hidden="false">
+      <svg class="shape s1" viewBox="0 0 100 100" aria-hidden="true"><use href="assets/shapes.svg#cookie12"/></svg>
+      <svg class="shape s2" viewBox="0 0 100 100" aria-hidden="true"><use href="assets/shapes.svg#flower8"/></svg>
+      <svg class="shape s3" viewBox="0 0 100 100" aria-hidden="true"><use href="assets/shapes.svg#finder"/></svg>
+      <figure class="phone a">
+        <img class="for-light" src="assets/shots/mobile_library_green_light.webp" width="430" height="979" alt="QuickeR library on a phone, green accent, light theme">
+        <img class="for-dark" src="assets/shots/mobile_library_pink_dark.webp" width="430" height="979" alt="QuickeR library on a phone, pink accent, dark theme">
+      </figure>
+      <figure class="phone b">
+        <img class="for-light" src="assets/shots/mobile_create_purple_light.webp" width="430" height="979" alt="QuickeR QR creator on a phone, purple accent, light theme">
+        <img class="for-dark" src="assets/shots/mobile_details_blue_dark.webp" width="430" height="979" alt="QuickeR QR details on a phone, blue accent, dark theme">
+      </figure>
+    </div>
+  </div>
+
+  <!-- The "no" list -->
+  <section class="nos" aria-label="What QuickeR doesn't do">
+    <div class="wrap">
+      <p class="nos-lead">Most QR sites want something back. A sign-up, a watermark, a paywall after 14 days, a tracking link in your code. QuickeR was built out of spite for all of that.</p>
+      <ul class="nos-list">
+        <li><span class="ms">no_accounts</span>No accounts</li>
+        <li><span class="ms">block</span>No limits</li>
+        <li><span class="ms">visibility_off</span>No ads</li>
+        <li><span class="ms">money_off</span>No purchases</li>
+        <li><span class="ms">shield</span>No telemetry</li>
+        <li><span class="ms">lock</span>No permissions</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="block" id="features">
+    <div class="wrap">
+      <div class="head">
+        <span class="kicker">Features</span>
+        <h2>Everything a QR needs, and nothing it doesn't</h2>
+        <p>The preview updates on every keystroke, and you see a summary before you save.</p>
+      </div>
+      <div class="features">
+        <article class="feat">
+          <div class="badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="assets/shapes.svg#cookie9"/></svg><span class="ms">qr_code_2</span></div>
+          <h3>Eight kinds of code</h3>
+          <p>Text and links, Wi-Fi, email, SMS, phone numbers, map locations, calendar events and contact cards (vCard). Each one gets its own form, so you never write <code>WIFI:T:WPA;S:…</code> by hand.</p>
+        </article>
+        <article class="feat">
+          <div class="badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="assets/shapes.svg#clover4"/></svg><span class="ms">palette</span></div>
+          <h3>Your colors, checked</h3>
+          <p>Pick the foreground and background. If the pair has low or moderate contrast, QuickeR warns you before you save a code that phones can't read.</p>
+        </article>
+        <article class="feat">
+          <div class="badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="assets/shapes.svg#sunny"/></svg><span class="ms">image</span></div>
+          <h3>Logo in the middle</h3>
+          <p>Drop your logo in the center. Error correction goes up to level H automatically, so the code keeps scanning with a chunk of it covered.</p>
+        </article>
+        <article class="feat">
+          <div class="badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="assets/shapes.svg#flower8"/></svg><span class="ms">view_in_ar</span></div>
+          <h3>Print it in 3D</h3>
+          <p>Export any code as an <span class="spec">.STL</span> model, with the dark modules raised or indented. Ready for your slicer, a coaster or a door sign.</p>
+        </article>
+        <article class="feat">
+          <div class="badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="assets/shapes.svg#cookie6"/></svg><span class="ms">push_pin</span></div>
+          <h3>A library that keeps up</h3>
+          <p>Every code you make is saved. Pin the ones you use most, filter by pinned, flip the order, rename tags and copy the raw content in one tap.</p>
+        </article>
+        <article class="feat">
+          <div class="badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="assets/shapes.svg#cookie12"/></svg><span class="ms">upload_file</span></div>
+          <h3>Import and back up</h3>
+          <p>Add QR images you got elsewhere (PNG, JPG, WEBP, SVG) and QuickeR decodes them. Move your whole library between devices as one <span class="spec">.ZIP</span>.</p>
+        </article>
+        <article class="feat">
+          <div class="badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="assets/shapes.svg#cookie9"/></svg><span class="ms">photo_library</span></div>
+          <h3>Save it where you need it</h3>
+          <p>Export to a folder, straight to your phone's gallery, or share it from the details sheet. Images are always clean <span class="spec">PNG</span>s.</p>
+        </article>
+        <article class="feat">
+          <div class="badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="assets/shapes.svg#clover4"/></svg><span class="ms">translate</span></div>
+          <h3>Seven languages</h3>
+          <p>English, Español, Euskara, Français, Deutsch, Português and Italiano. Switch in Settings and the app changes on the spot.</p>
+        </article>
+        <article class="feat">
+          <div class="badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="assets/shapes.svg#sunny"/></svg><span class="ms">contrast</span></div>
+          <h3>Material You, your way</h3>
+          <p>Light, dark or follow the system, with an accent color of your choice. Separate layouts for phones and big screens. Try the <span class="ms inline">palette</span> button up top.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Playground -->
+  <section class="block" id="try">
+    <div class="wrap">
+      <div class="head">
+        <span class="kicker">Try it</span>
+        <h2>Make one right here</h2>
+        <p>A small taste of the app. It runs entirely in your browser: nothing you type is sent anywhere.</p>
+      </div>
+      <div class="play">
+        <form class="play-form" id="playForm" autocomplete="off" onsubmit="return false">
+          <div class="seg" role="tablist" aria-label="QR type">
+            <button type="button" role="tab" data-type="text" aria-selected="true"><span class="ms">text_fields</span>Text/URL</button>
+            <button type="button" role="tab" data-type="wifi" aria-selected="false"><span class="ms">wifi</span>Wi-Fi</button>
+            <button type="button" role="tab" data-type="email" aria-selected="false"><span class="ms">mail</span>Email</button>
+            <button type="button" role="tab" data-type="phone" aria-selected="false"><span class="ms">call</span>Phone</button>
+            <button type="button" role="tab" data-type="sms" aria-selected="false"><span class="ms">sms</span>SMS</button>
+          </div>
+
+          <div class="fields" data-for="text">
+            <label class="field"><span>Enter URL or text</span><input name="text" value="https://github.com/ChoiceZero/QuickeR" maxlength="900"></label>
+          </div>
+          <div class="fields" data-for="wifi" hidden>
+            <label class="field"><span>Network name</span><input name="ssid" placeholder="Home"></label>
+            <label class="field"><span>Password</span><input name="pass" type="text" placeholder="Leave empty if the network has none"></label>
+            <label class="field select"><span>Security</span><select name="sec"><option value="WPA">WPA/WPA2/WPA3</option><option value="WEP">WEP</option><option value="nopass">No password</option></select></label>
+          </div>
+          <div class="fields" data-for="email" hidden>
+            <label class="field"><span>Email address</span><input name="to" type="email" placeholder="hello@example.com"></label>
+            <label class="field"><span>Subject</span><input name="subject"></label>
+            <label class="field"><span>Body</span><textarea name="body" rows="2"></textarea></label>
+          </div>
+          <div class="fields" data-for="phone" hidden>
+            <label class="field"><span>Phone number</span><input name="tel" type="tel" placeholder="+34 600 000 000"></label>
+          </div>
+          <div class="fields" data-for="sms" hidden>
+            <label class="field"><span>Receiver's phone number</span><input name="smsto" type="tel" placeholder="+34 600 000 000"></label>
+            <label class="field"><span>Preset message</span><textarea name="msg" rows="2"></textarea></label>
+          </div>
+
+          <div class="row">
+            <label class="color"><input type="color" name="fg" value="#1d1b20"><span>Primary</span></label>
+            <label class="color"><input type="color" name="bg" value="#ffffff"><span>Background</span></label>
+            <label class="field select small"><span>Error correction</span>
+              <select name="ecl"><option value="L">L (7%)</option><option value="M" selected>M (15%)</option><option value="Q">Q (25%)</option><option value="H">H (30%)</option></select>
+            </label>
+          </div>
+          <div class="row">
+            <label class="btn tonal small file"><span class="ms">image</span><span id="logoLabel">Add a logo</span><input type="file" name="logo" accept="image/*"></label>
+            <button class="btn outlined small" type="button" id="logoClear" hidden><span class="ms">close</span>Remove logo</button>
+          </div>
+          <p class="warn" id="contrastWarn" hidden><span class="ms">warning</span><span></span></p>
+          <p class="hint" id="eclHint" hidden><span class="ms">verified</span>With a logo, error correction is set to H, like in the app.</p>
+        </form>
+
+        <div class="play-out">
+          <div class="qr-frame" id="qrFrame">
+            <svg id="qrSvg" role="img" aria-label="Generated QR code"></svg>
+          </div>
+          <p class="qr-meta" id="qrMeta">&nbsp;</p>
+          <div class="actions center">
+            <button class="btn filled" type="button" id="dlPng"><span class="ms">download</span>Save PNG</button>
+            <a class="btn tonal" href="#download"><span class="ms">add</span>Get the full app</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screens -->
+  <section class="block" id="screens">
+    <div class="wrap">
+      <div class="head">
+        <span class="kicker">Inside the app</span>
+        <h2>One app, made for your phone and your desktop</h2>
+        <p>QuickeR switches layout with the size of the window. Shown in a mix of the accent colors you can pick.</p>
+      </div>
+      <div class="rail" tabindex="0" aria-label="Phone screenshots">
+        <figure class="shot">
+          <div class="phone"><img src="assets/shots/mobile_library_green_light.webp" width="430" height="979" alt="Library" loading="lazy"></div>
+          <figcaption><b>Library</b><span>Every code you've made, newest first. Filter by pinned.</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="phone"><img src="assets/shots/mobile_create_purple_light.webp" width="430" height="979" alt="QR creator" loading="lazy"></div>
+          <figcaption><b>Creator</b><span>Pick a type, fill the form, watch the preview change.</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="phone"><img src="assets/shots/mobile_details_blue_dark.webp" width="430" height="979" alt="QR details" loading="lazy"></div>
+          <figcaption><b>Details</b><span>Date, file size and decoded content, with export one tap away.</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="phone"><img src="assets/shots/mobile_settings_teal_dark.webp" width="430" height="979" alt="Settings in dark theme" loading="lazy"></div>
+          <figcaption><b>Color scheme</b><span>Choose the accent the whole app is built from.</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="phone"><img src="assets/shots/mobile_library_pink_dark.webp" width="430" height="979" alt="Library in dark theme" loading="lazy"></div>
+          <figcaption><b>Dark theme</b><span>Light, dark, or whatever your system says.</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="phone"><img src="assets/shots/mobile_settings_indigo_light.webp" width="430" height="979" alt="Settings in light theme" loading="lazy"></div>
+          <figcaption><b>Settings</b><span>Language, appearance, library import and export.</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="desk">
+        <div class="seg desk-tabs" role="tablist" aria-label="Desktop screens">
+          <button type="button" role="tab" aria-selected="true" data-light="desktop_library_green_light" data-dark="desktop_library_green_light" data-cap="Library and details side by side, so you can browse and inspect without leaving the list.">Library</button>
+          <button type="button" role="tab" aria-selected="false" data-light="desktop_create_green_light" data-dark="desktop_create_purple_dark" data-cap="The creator opens as a sheet over your library. The preview at the top changes as you type.">Creator</button>
+          <button type="button" role="tab" aria-selected="false" data-light="desktop_details_green_light" data-dark="desktop_details_blue_dark" data-cap="Details show when it was made, how big the file is and what the code actually says.">Details</button>
+          <button type="button" role="tab" aria-selected="false" data-light="desktop_export_pink_dark" data-dark="desktop_export_pink_dark" data-cap="Export to a folder, to the gallery, or as a 3D model you can print.">Export</button>
+          <button type="button" role="tab" aria-selected="false" data-light="desktop_settings_orange_light" data-dark="desktop_settings_green_light" data-cap="Settings cover language, theme, color, library backups and update checks.">Settings</button>
+        </div>
+        <figure class="window">
+          <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+          <img id="deskImg" src="assets/shots/desktop_library_green_light.webp" width="1600" height="939" alt="QuickeR on desktop: library">
+        </figure>
+        <p class="desk-cap" id="deskCap">Library and details side by side, so you can browse and inspect without leaving the list.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download -->
+  <section class="block" id="download">
+    <div class="wrap">
+      <div class="release">
+        <svg class="deco" viewBox="0 0 100 100" aria-hidden="true"><use href="assets/shapes.svg#cookie9"/></svg>
+        <div class="copy">
+          <h2>Get QuickeR <span id="relVer">1.1.2</span></h2>
+          <p class="meta" id="relMeta">Free, forever. No sign-up between you and the file.</p>
+          <div class="actions">
+            <a class="btn filled on-container" href="https://github.com/ChoiceZero/QuickeR/releases/latest"><span class="ms">open_in_new</span>All releases and notes</a>
+          </div>
+          <div class="web-card">
+            <span class="ms">public</span>
+            <div><b>On iPhone, or just in a hurry?</b><span>The web app runs in any browser, nothing to install.</span></div>
+            <a class="text-link" href="https://choicezero.github.io/QuickeR-Web/">Open<span class="ms">arrow_forward</span></a>
+          </div>
+        </div>
+        <div class="dl grouped" id="dlList">
+          <div class="os" data-os="android">
+            <span class="os-name">Android</span>
+            <ul>
+              <li><a href="https://github.com/ChoiceZero/QuickeR/releases/latest/download/QuickeR.apk" data-asset="QuickeR.apk"><span class="ms">android</span><span><b>APK</b><small>Install directly, or track updates with Obtainium</small></span><span class="ms go">download</span></a></li>
+            </ul>
+          </div>
+          <div class="os" data-os="windows">
+            <span class="os-name">Windows</span>
+            <ul>
+              <li><a href="https://github.com/ChoiceZero/QuickeR/releases/latest/download/QuickeR-windows-setup.exe" data-asset="QuickeR-windows-setup.exe"><span class="ms">desktop_windows</span><span><b>Installer</b><small>Start menu entry and uninstaller</small></span><span class="ms go">download</span></a></li>
+              <li><a href="https://github.com/ChoiceZero/QuickeR/releases/latest/download/QuickeR-windows.zip" data-asset="QuickeR-windows.zip"><span class="ms">folder_zip</span><span><b>Portable .zip</b><small>Unzip and run, nothing installed</small></span><span class="ms go">download</span></a></li>
+            </ul>
+          </div>
+          <div class="os" data-os="linux">
+            <span class="os-name">Linux</span>
+            <ul>
+              <li><a href="https://github.com/ChoiceZero/QuickeR/releases/latest/download/QuickeR-linux.AppImage" data-asset="QuickeR-linux.AppImage"><span class="ms">terminal</span><span><b>AppImage</b><small>One file, runs on most distros</small></span><span class="ms go">download</span></a></li>
+              <li><a href="https://github.com/ChoiceZero/QuickeR/releases/latest/download/QuickeR-linux.zip" data-asset="QuickeR-linux.zip"><span class="ms">folder_zip</span><span><b>Portable .zip</b><small>Standalone build</small></span><span class="ms go">download</span></a></li>
+            </ul>
+          </div>
+          <div class="os" data-os="mac">
+            <span class="os-name">macOS <em>beta</em></span>
+            <ul>
+              <li><a href="https://github.com/ChoiceZero/QuickeR/releases/latest/download/QuickeR-macos.dmg" data-asset="QuickeR-macos.dmg"><span class="ms">laptop_mac</span><span><b>Disk image (.dmg)</b><small>Built automatically, not tested on a real Mac yet</small></span><span class="ms go">download</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="block" id="faq">
+    <div class="wrap">
+      <div class="head">
+        <span class="kicker">FAQ</span>
+        <h2>Common questions</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Is it actually free? What's the catch?<span class="ms">expand_more</span></summary>
+          <div class="ans">No catch. There are no paid tiers, no limits on how many codes you make, and the codes don't expire because they point straight at your content, not through a redirect service. If you'd like to help, there's a <a href="https://buymeacoffee.com/choicezero">Buy Me a Coffee</a> page, but nothing is locked behind it.</div>
+        </details>
+        <details>
+          <summary>What does QuickeR collect about me?<span class="ms">expand_more</span></summary>
+          <div class="ans">Nothing. No analytics, no telemetry, no crash reporting, no account. Your library lives in the app's own folder on your device. The only network request it can make is an optional check for new releases on GitHub, which you can turn off in Settings. The app doesn't ask for any permissions.</div>
+        </details>
+        <details>
+          <summary>Will my code still scan with a logo in it?<span class="ms">expand_more</span></summary>
+          <div class="ans">Usually, yes. When you add a logo, QuickeR raises error correction to level H, which lets about 30% of the code be covered or damaged. Very large or busy logos can still break it, so test with your phone's camera before you print a thousand flyers. Use a square image so it isn't squished.</div>
+        </details>
+        <details>
+          <summary>How do I get updates on Android?<span class="ms">expand_more</span></summary>
+          <div class="ans">Use <a href="https://github.com/ImranR98/Obtainium">Obtainium</a>: choose <b>Add App</b>, paste <code>https://github.com/ChoiceZero/QuickeR</code> and pick GitHub as the source. It'll fetch new APKs as they're released. If Android refuses to update over a build from v1.1.2 or earlier, uninstall the old one once: those were each signed with a different key. Every build since is signed with the same one.</div>
+        </details>
+        <details>
+          <summary>Why isn't there an iOS app?<span class="ms">expand_more</span></summary>
+          <div class="ans">The framework QuickeR is built on doesn't work reliably on iOS yet, so support is on hold. The <a href="https://choicezero.github.io/QuickeR-Web/">web app</a> works fine in Safari in the meantime.</div>
+        </details>
+        <details>
+          <summary>Why is macOS marked beta?<span class="ms">expand_more</span></summary>
+          <div class="ans">The macOS build is made automatically on every release, but the developer doesn't own a Mac to test it. It should work. If it doesn't, an <a href="https://github.com/ChoiceZero/QuickeR/issues">issue on GitHub</a> helps a lot.</div>
+        </details>
+        <details>
+          <summary>Can I help translate it?<span class="ms">expand_more</span></summary>
+          <div class="ans">Yes. Every string lives in one file, <code>src/translations.json</code>, with English as the key. Fix an entry or add a whole language, run <code>python scripts/check_translations.py</code>, and open a pull request.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Support band -->
+  <section class="block support-wrap">
+    <div class="wrap">
+      <div class="support">
+        <svg class="deco" viewBox="0 0 100 100" aria-hidden="true"><use href="assets/shapes.svg#finder"/></svg>
+        <div>
+          <h2>Like it? Help it grow.</h2>
+          <p>QuickeR is made by one person in the Basque Country, mostly by hand. A star, a share or a coffee all make a difference.</p>
+        </div>
+        <div class="actions">
+          <a class="btn filled" href="https://buymeacoffee.com/choicezero"><span class="ms">coffee</span>Buy me a coffee</a>
+          <a class="btn tonal" href="https://github.com/ChoiceZero/QuickeR"><span class="ms">star</span>Star on GitHub</a>
+          <button class="btn outlined" type="button" id="shareBtn"><span class="ms">share</span><span>Share QuickeR</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="about">
+      <a class="brand" href="#top"><img src="assets/img/icon.png" width="32" height="32" alt=""><b>Quicke<span>R</span></b></a>
+      <p>QR codes without accounts, limits, ads, purchases or tracking. This site doesn't use cookies or analytics either, and its fonts are served from here.</p>
+    </div>
+    <div>
+      <h4>App</h4>
+      <ul>
+        <li><a href="#download">Download</a></li>
+        <li><a href="https://choicezero.github.io/QuickeR-Web/">Web app</a></li>
+        <li><a href="https://github.com/ChoiceZero/QuickeR/releases">Changelog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <ul>
+        <li><a href="https://github.com/ChoiceZero/QuickeR">Source code</a></li>
+        <li><a href="https://github.com/ChoiceZero/QuickeR/issues">Report a bug</a></li>
+        <li><a href="https://github.com/ChoiceZero/QuickeR/blob/main/LICENSE">MIT License</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Support</h4>
+      <ul>
+        <li><a href="https://buymeacoffee.com/choicezero">Buy me a coffee</a></li>
+        <li><a href="https://github.com/ChoiceZero">ChoiceZero on GitHub</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap legal">
+    <span>© 2026 ChoiceZero · MIT</span>
+    <span>Made with <span class="ms fill heart">favorite</span> in the Basque Country, Spain.</span>
+  </div>
+</footer>
+
+<script src="assets/vendor/qrcode.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>
